@@ -1,0 +1,9 @@
+{
+	"name": "Timestamp-Microservice",
+	"main": "server.js",
+	"dependencies" : {
+		"express": "4.13.4",
+		"moment": "2.13.0",
+		"cors": "2.7.1"
+	}
+}
