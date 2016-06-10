@@ -16,11 +16,11 @@ app.get('/:date', function(req, res) {
 	var URL = url.parse(req.url).pathname.replace(/%20/g, ' ').slice(1);
 
 	if (isNaN(URL)) {
-		var unixtime = moment(URL.toString(), "MMMM-DD-YYYY").unix()
-		var naturaltime = moment(URL.toString(), "MMMM-DD-YYYY").format("MMMM D, YYYY")
+		var unixtime = moment.utc(URL, "LL").unix()
+		var naturaltime = moment.utc(URL, "LL").format("LL")
 	} else {
-		var unixtime = moment.unix(+URL, "MMMM-DD-YYYY").unix()
-		var naturaltime = moment.unix(+URL).format("MMMM D, YYYY")
+		var unixtime = moment.unix(URL, "LL").unix()
+		var naturaltime = moment.unix(URL).format("LL")
 	}
 
 	res.send(JSON.stringify({
